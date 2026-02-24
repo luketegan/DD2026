@@ -41,6 +41,24 @@ app.get("/images/sample.jpg", (req, res) => {
     res.sendFile(filePath);
 });
 
+//HttP Methods get post put delete
+//GET
+app.get("/api/items", (req, res) => {
+    res.send("This is a get repsonse from /api/items");
+});
+//POST
+app.post("/api/items", (req, res) => {
+    res.send("This is a post repsonse from /api/items");
+});
+//PUT
+app.put("/api/items/:id", (req, res) => {
+    res.send(`This is a put repsonse from /api/items/`);
+});
+//DELETE
+app.delete("/api/items/:id", (req, res) => {
+    res.send(`This is a delete repsonse from /api/items/`);
+});
+
 //Start the server
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
