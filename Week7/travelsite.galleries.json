@@ -1,0 +1,16 @@
+[{
+  "_id": {
+    "$oid": "69bc1dba86df8d36dc852c57"
+  },
+  "name": "home",
+  "description": "This is a gallery for the homepage slideshow",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69bc1df686df8d36dc852c5b"
+  },
+  "name": "about-us",
+  "description": "This is a gallery for the about us gallery.",
+  "__v": 0
+}]

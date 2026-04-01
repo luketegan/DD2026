@@ -1,0 +1,117 @@
+[{
+  "_id": {
+    "$oid": "69a9b749f848a0a9b29310e4"
+  },
+  "name": "Skiing & Snowboarding",
+  "description": "Ride expansive, sunlit slopes with panoramic alpine views, perfect for both beginners and advanced riders.",
+  "image": "/images/Skiing.jpg",
+  "cost": 110,
+  "destination": {
+    "$oid": "69a710df34538536bd57065f"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69a9b895f848a0a9b29310e6"
+  },
+  "name": "La Folie Douce (Slope-Side Experience)",
+  "description": "A high-energy alpine venue combining live music, performances, and an unforgettable atmosphere right on the mountain.",
+  "image": "/images/Slope-Side.jpg",
+  "cost": 80,
+  "destination": {
+    "$oid": "69a710df34538536bd57065f"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69a9b8a0f848a0a9b29310e8"
+  },
+  "name": "Dog Sledding",
+  "description": "Glide through snowy alpine landscapes guided by a team of huskies for a peaceful, immersive winter experience.",
+  "image": "/images/DogSledding.jpg",
+  "cost": 150,
+  "destination": {
+    "$oid": "69a710df34538536bd57065f"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cc60170ef810ba79d0942c"
+  },
+  "name": "Jet Skiing",
+  "description": "Experience the open Mediterranean with high-speed rides along the iconic Riviera coastline, surrounded by crystal-clear waters and luxury yachts.",
+  "image": "/images/JetSkiing.jpg",
+  "cost": 135,
+  "destination": {
+    "$oid": "69bc18ed6f78bfc7d9628dc8"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cc60830ef810ba79d09437"
+  },
+  "name": "Le Club 55",
+  "description": "Relax in an upscale beachfront setting known for its signature blend of music, dining, and high-end ambiance.",
+  "image": "/images/Club55.jpg",
+  "cost": 200,
+  "destination": {
+    "$oid": "69bc18ed6f78bfc7d9628dc8"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cc60b20ef810ba79d09444"
+  },
+  "name": "Shopping at Place des Lices",
+  "description": "Browse a mix of designer boutiques and local markets in one of the most stylish squares in the South of France.",
+  "image": "/images/Shopping.jpg",
+  "cost": 140,
+  "destination": {
+    "$oid": "69bc18ed6f78bfc7d9628dc8"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cc621f0ef810ba79d09454"
+  },
+  "name": "World-Famous Nightlife",
+  "description": "Immerse yourself in globally renowned nightlife, featuring top DJs, iconic venues, and an unmatched late-night energy.",
+  "image": "/images/NightClub.jpg",
+  "cost": 100,
+  "destination": {
+    "$oid": "69a710dc34538536bd57065d"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cc62ad0ef810ba79d09456"
+  },
+  "name": "Boat Trips to Formentera",
+  "description": "Set out across the Mediterranean to the nearby island of Formentera, known for its crystal-clear waters, white sand beaches, and laid-back atmosphere. This scenic escape offers a refreshing contrast to Ibiza’s energy, with breathtaking coastal views along the way.",
+  "image": "/images/Boat.jpg",
+  "cost": 400,
+  "destination": {
+    "$oid": "69a710dc34538536bd57065d"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cc62f30ef810ba79d09458"
+  },
+  "name": "Beach Club - Zazú",
+  "description": "Located in Playa d’en Bossa, Zazú Ibiza blends beachfront relaxation with an immersive dinner and nightlife experience. By day, it offers a laid-back coastal atmosphere, while at night it transforms with live performances, DJs, and vibrant energy in a stylish, jungle-inspired setting.",
+  "image": "/images/Zazú.jpg",
+  "cost": 200,
+  "destination": {
+    "$oid": "69a710dc34538536bd57065d"
+  },
+  "__v": 0
+}]

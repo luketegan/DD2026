@@ -1,0 +1,33 @@
+[{
+  "_id": {
+    "$oid": "69bc1e9c86df8d36dc852c5d"
+  },
+  "url": "/images/homepage1.jpg",
+  "caption": "Ibiza, Spain",
+  "gallery": {
+    "$oid": "69bc1dba86df8d36dc852c57"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69bc1ea986df8d36dc852c5f"
+  },
+  "url": "/images/homepage2.jpg",
+  "caption": "Alpe d'Huez, France",
+  "gallery": {
+    "$oid": "69bc1dba86df8d36dc852c57"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69bc1eae86df8d36dc852c61"
+  },
+  "url": "/images/homepage3.jpg",
+  "caption": "St. Tropez, France",
+  "gallery": {
+    "$oid": "69bc1dba86df8d36dc852c57"
+  },
+  "__v": 0
+}]

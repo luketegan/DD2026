@@ -1,0 +1,30 @@
+[{
+  "_id": {
+    "$oid": "69a710dc34538536bd57065d"
+  },
+  "page": "ibiza, spain",
+  "name": "Ibiza, Spain",
+  "description": "Set in the heart of the Mediterranean, Ibiza is an island where natural beauty and vibrant energy exist in perfect balance. Known for its crystal-clear waters, golden coves, and dramatic coastal landscapes, Ibiza offers a setting that feels both serene and electric. Its historic old town, with centuries-old stone walls and winding streets, reflects a rich cultural heritage, while the island’s modern side brings a dynamic, cosmopolitan atmosphere. From sun-soaked days along the shoreline to evenings filled with music and movement, Ibiza delivers an experience that is effortlessly captivating and endlessly alive.",
+  "image": "/images/Ibiza.jpg",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69a710df34538536bd57065f"
+  },
+  "page": "alpe d'huez, france",
+  "name": "Alpe d'Huez, France",
+  "description": "Nestled high in the French Alps, Alpe d'Huez is a destination where alpine charm meets a vibrant, modern energy. Known for its expansive sunlit slopes and sweeping mountain vistas, the resort offers a striking blend of natural beauty and lively atmosphere. Its elevated setting provides breathtaking panoramic views that stretch across snow-covered peaks, while the village itself balances traditional chalet architecture with a dynamic après-ski culture. Whether bathed in crisp winter light or glowing under the stars, Alpe d’Huez delivers an experience that feels both serene and exhilarating.",
+  "image": "/images/Alped'Huez,France.jpg",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69bc18ed6f78bfc7d9628dc8"
+  },
+  "page": "st. tropez, france",
+  "name": "St. Tropez, France",
+  "description": "Set along the sparkling coastline of the French Riviera, Saint-Tropez is a destination that effortlessly blends timeless elegance with a lively coastal spirit. Once a quiet fishing village, it has evolved into a world-renowned escape known for its pastel-colored streets, iconic harbor lined with yachts, and sun-drenched Mediterranean views. The charm of its historic old town contrasts beautifully with its reputation for luxury and glamour, creating an atmosphere that feels both relaxed and refined. With its golden light, vibrant energy, and unmistakable Riviera allure, Saint-Tropez offers an experience that is as picturesque as it is sophisticated.",
+  "image": "/images/St.Tropez.jpg",
+  "__v": 0
+}]
