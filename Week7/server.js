@@ -95,8 +95,14 @@ app.use(express.static(path.join(__dirname, "static")));
 //parse the body of the incomming reuqests
 app.use(express.urlencoded({ extended: true }));
 //data
+// Set up Basic CORS headers for communicating with APIs
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+    res.header("Access-Control-Allow-Headers", "Content-Type");
+    next();
+});
 
-//generate routes 
 
 app.get("/", async (req, res) => {
 //Homepage Route
@@ -199,6 +205,11 @@ app.post("/images", async (req, res) => {
   });
   await newImage.save();
   res.send("Image added successfully");
+});
+//setup basic api routes
+app.get("/api/destinations", async (req, res) => {
+  const destinations = await Destination.find().lean();
+  res.json(destinations);
 });
 
 //Start the server
