@@ -27,7 +27,23 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <div className="w-full max-w-[1020px] m-auto p-4">
+      <nav className="flex items-center justify-between py-4">
+        <a href="/" className="text-2xl font-bold p-2 m-2">
+          Travel Site Admin
+        </a>
+        <a href="/destinations" className="text-2xl font-bold p-2 m-2">
+          Destinations
+        </a>
+        <a href="/destinations/new" className="text-2xl font-bold p-2 m-2">
+          Add New Destination
+        </a>
+      </nav>
+
+        {children}
+        </div>  
+        </body>
     </html>
   );
 }

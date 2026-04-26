@@ -4,7 +4,7 @@
 
 const express = require('express');
 const app = express();
-const PORT = 3000;
+const PORT = 3001;
 
 //https://www.npmjs.com/package/express-handlebars 
 const hbs = require('express-handlebars');
@@ -15,11 +15,23 @@ app.set("view engine", "handlebars");
 // the path module is used to work with file and directory paths
 const path = require("path");
 
+const multer = require("multer");
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "./static/images/");
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + "-" + file.originalname);
+  },
+});
+const upload = multer({ storage: storage });
+
 //set up db connection
 const mongoose = require('mongoose');
 const { title } = require("process");
-// create schemas
 
+// create schemas
 const pageSchema = new mongoose.Schema({
     slug: String,//about-us friendly url
     name: String,//About Us
@@ -49,6 +61,7 @@ const destinationSchema = new mongoose.Schema({
     toJSON: { virtuals: true},
     toObject: { virtuals: true },
 });
+
 // See virtuals in mongoose documentation: https://mongoosejs.com/docs/guide.html#virtuals
 destinationSchema.virtual("activities", {
     ref: "activities",
@@ -85,21 +98,17 @@ const Image = mongoose.model("images", imageSchema);
 
 async function main() {
   await mongoose.connect('mongodb://127.0.0.1:27017/travelsite');
-  // use `await mongoose.connect('mongodb://user:password@127.0.0.1:27017/test');` if your database has auth enabled
 }
-main().catch(err => console.log(err));
+main().catch((err) => console.log(err));
 
-//Serving static files
-//review middleware in express under week 7 in blackboard or: https://expressjs.com/en/guide/using-middleware.html
 app.use(express.static(path.join(__dirname, "static")));
-//parse the body of the incomming reuqests
+
 app.use(express.urlencoded({ extended: true }));
-//data
-// Set up Basic CORS headers for communicating with APIs
+
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
-    res.header("Access-Control-Allow-Headers", "Content-Type");
+    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
 
@@ -115,23 +124,24 @@ res.render("home", {
     title : homePage.name,
     description: homePage.description,
     galleryImages: gallery.images,
-    destinations: destinations
+    destinations: destinations,
 });
 });
 
 //generate routes to populate destinatios page
-app.post("/destinations", async (req, res) => {
-  // code to add a new destination to the database
-  const { page, name, description, image } = req.body;
+app.post("/api/destinations", upload.single("image"), async (req, res) => {
+
+  const { page, name, description } = req.body;
+  const image = req.file; 
   console.log(req.body);
   const newDestination = new Destination({
     page,
     name,
     description,
-    image,
+    image: image ? `/images/${image.filename}` : "/images/default.jpg", 
   });
   await newDestination.save();
-  //res.redirect("/destinations");
+
   res.send("Destination added successfully");
 });
 
@@ -143,19 +153,33 @@ app.get("/destinations", async (req, res) => {
   });
 });
 
-//Get a specific destination by _id
+//Get a specific destination by id
 app.get("/destinations/:id", async (req, res) => {
   const { id } = req.params;
   const destination = await Destination.findById(id)
     .populate("activities")
     .lean();
   //const activities = await Activity.find({ destination: id }).lean();
-
   res.render("details", {
     destination: destination,
     title: destination.name,
     activities: destination.activities,
   });
+});
+
+app.put("/api/destinations/:id", upload.single("image"), async (req, res) => {
+  console.clear();
+  const { id } = req.params;
+  const { page, name, description } = req.body;
+  const image = req.file;
+
+  await Destination.findByIdAndUpdate(id, {
+    page,
+    name,
+    description,
+    image: image ? `/images/${image.filename}` : this.image,
+  });
+  res.send("Destination updated successfully");
 });
 
 //activities routes
@@ -170,6 +194,12 @@ app.post("/activities", async (req, res) => {
   });
   await newActivity.save();
   res.send("Activity added successfully");
+});
+
+app.delete("/api/destinations/:id", async (req, res) => {
+  const { id } = req.params;
+  await Destination.findByIdAndDelete(id);
+  res.send("Destination deleted successfully");
 });
 
 //Create a new page
@@ -206,10 +236,21 @@ app.post("/images", async (req, res) => {
   await newImage.save();
   res.send("Image added successfully");
 });
+
 //setup basic api routes
 app.get("/api/destinations", async (req, res) => {
   const destinations = await Destination.find().lean();
   res.json(destinations);
+});
+
+//Get a specific destination by _id
+app.get("/api/destinations/:id", async (req, res) => {
+  const { id } = req.params;
+  const destination = await Destination.findById(id)
+    .populate("activities")
+    .lean();
+  //const activities = await Activity.find({ destination: id }).lean();
+  res.json(destination);
 });
 
 //Start the server
