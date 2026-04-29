@@ -9,7 +9,7 @@ export default function UpdateDestinationPage() {
 
 useEffect(() => {
     const fetchDestination = async () => {
-      const response = await fetch("http://localhost:3001/api/destinations"+searchParams.get('id'));
+      const response = await fetch("http://localhost:3001/api/destinations/"+searchParams.get('id'));
       const data = await response.json();
       setFormData(data);
 
@@ -62,7 +62,7 @@ useEffect(() => {
 
         try {
             // fetch the data 
-            const response = await fetch("http://localhost:3001/api/destinations" + searchParams.get('id'), {
+            const response = await fetch("http://localhost:3001/api/destinations/" + searchParams.get('id'), {
                 method: "PUT",
                 body: body
             });

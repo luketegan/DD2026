@@ -46,7 +46,7 @@ export default function NewDestinationPage() {
 
         try {
             // fetch the data 
-            const response = await fetch("http://localhost:3001/api/destinations", {
+            const response = await fetch("http://localhost:3001/api/destinations/", {
                 method: "POST",
                 body: body
             });
